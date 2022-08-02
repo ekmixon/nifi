@@ -33,8 +33,8 @@ class ReadContentAndStoreAsAttribute(Processor) :
     def initialize(self, context) :
         pass
 
-    def getRelationships(self) :
-        return set([self.__rel_success])
+    def getRelationships(self):
+        return {self.__rel_success}
 
     def validate(self, context) :
         pass

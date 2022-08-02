@@ -24,7 +24,6 @@ from SimpleHTTPServer import SimpleHTTPRequestHandler
 from SocketServer import ThreadingMixIn
 from ssl import CERT_REQUIRED, wrap_socket
 
-# Needs to be threaded or health check hangs the server
 class ThreadedHTTPServer(ThreadingMixIn, HTTPServer):
   pass
 
@@ -39,7 +38,8 @@ if __name__ == '__main__':
   logging.debug('About to parse arguments')
   args = parser.parse_args()
 
-  logging.debug('Serving directory ' + args.dir + ' via HTTPS at port ' + str(args.port))
+  logging.debug(
+      f'Serving directory {args.dir} via HTTPS at port {str(args.port)}')
 
   chdir(args.dir)
 

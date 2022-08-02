@@ -57,7 +57,8 @@ if __name__ == '__main__':
   global TAIL_FILES
   TAIL_FILES = args.file
 
-  logging.debug('Serving tail of ' + str(TAIL_FILES) + ' via HTTP at port ' + str(args.port))
+  logging.debug(
+      f'Serving tail of {str(TAIL_FILES)} via HTTP at port {str(args.port)}')
 
   server = ThreadedHTTPServer(('', args.port), TailHTTPRequestHandler)
   server.serve_forever()
